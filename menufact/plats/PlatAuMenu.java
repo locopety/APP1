@@ -1,18 +1,27 @@
 package menufact.plats;
 
 import menufact.plats.exceptions.PlatException;
+import ingredients.Viande;
+import ingredients.Ingredient;
+import ingredients.TypeIngredient;
+import java.util.ArrayList;
 
 public class PlatAuMenu {
     private int code;
     private String description;
     private double prix;
     private EtatPlat etat;
+    private ArrayList<Ingredient> ingredient = new ArrayList<Ingredient>();
 
     public PlatAuMenu(int code, String description, double prix) {
         this.code = code;
         this.description = description;
         this.prix = prix;
         this.etat = new EtatCommande();
+    }
+    public void ajoute (Ingredient i)
+    {
+        ingredient.add(i);
     }
 
     public PlatAuMenu() {
@@ -24,6 +33,7 @@ public class PlatAuMenu {
                 "code=" + code +
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
+                ", ingredients="+ingredient+
                 ", etat=" + etat +
                 "}\n";
     }

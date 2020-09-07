@@ -1,10 +1,12 @@
 package menufact;
 
-import menufact.facture.exceptions.FactureException;
+import ingredients.Ingredient;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
+import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
+import menufact.plats.PlatEnfant;
 import menufact.plats.PlatSante;
 
 public class TestMenuFact02 {
@@ -27,9 +29,21 @@ public class TestMenuFact02 {
         PlatSante ps4 = new PlatSante(13,"PlatSante3",40,11,11,11);
         PlatSante ps5 = new PlatSante(14,"PlatSante4",50,11,11,11);
 
+        PlatEnfant pe1 = new PlatEnfant(20,"PlatEnfant0",10, 0.5);
+        PlatEnfant pe2 = new PlatEnfant(21,"PlatEnfant1",21,0.6);
+        PlatEnfant pe3 = new PlatEnfant(22,"PlatEnfant3",34,0.3);
+        PlatEnfant pe4 = new PlatEnfant(23,"PlatEnfant4",45,0.1);
+        PlatEnfant pe5 = new PlatEnfant(24,"PlatEnfant5",60,0.9);
+
 
         Menu m1 = new Menu("menufact.Menu 1");
         Menu m2 = new Menu("menufact.Menu 2");
+        Menu m3 = new Menu("menufact.Menu 3");
+
+        Ingredient poulet = new Ingredient();
+        poulet.setNom("poulet");
+        poulet.setDescription("viande blanche");
+        //poulet.setTypeIngredient(VIANDE);
 
         Facture f1 = new Facture("Ma facture");
 
@@ -37,9 +51,11 @@ public class TestMenuFact02 {
 
 
         t.test1_AffichePlatsAuMenu(trace, p1,p2,p3,p4,p5);
-        t. test2_AffichePlatsSante(trace, ps1,ps2,ps3,ps4,ps5);
-
-        t.test4_AjoutPlatsAuMenu(trace, m1, p1, p2, ps1, ps2, m2, p3, p4, ps3, ps4);
+        t.test2_AffichePlatsSante(trace, ps1,ps2,ps3,ps4,ps5);
+        t.test2_1_AffichePlatsEnfant(trace,pe1,pe2,pe3,pe4,pe5);
+        t.test3_AjoutMenu(trace, m1,m2,m3);
+        t.test3_1_Ajoutingredient(trace,p1,poulet);
+        t.test4_AjoutPlatsAuMenu(trace, m1, p1, p2, ps1, ps2, m2, p3, p4, ps3, ps4,m3,p5,ps5,pe1,pe2);
 
 
         try {
@@ -134,8 +150,20 @@ public class TestMenuFact02 {
         }
     }
 
+    private void test2_1_AffichePlatsEnfant(boolean trace, PlatEnfant pe1, PlatEnfant pe2, PlatEnfant pe3,PlatEnfant pe4, PlatEnfant pe5){
+        System.out.println("===test2_1_AffichePlatsEnfant");
 
-    private static void test3_AjoutMenu(boolean trace, Menu m1, Menu m2)
+        if(trace){
+            System.out.println(pe1);
+            System.out.println(pe2);
+            System.out.println(pe3);
+            System.out.println(pe4);
+            System.out.println(pe5);
+        }
+    }
+
+
+    private static void test3_AjoutMenu(boolean trace, Menu m1, Menu m2, Menu m3)
     {
 
         System.out.println("=== test3_AjoutMenu");
@@ -143,16 +171,29 @@ public class TestMenuFact02 {
         if(trace) {
             System.out.println(m1);
             System.out.println(m2);
+            System.out.println(m3);
         }
     }
+    private void test3_1_Ajoutingredient(boolean trace,PlatAuMenu p1,Ingredient poulet){
+        System.out.println("===test3_1AjoutIngredient");
+        System.out.println("=== Ajout de poulet au plat p1");
+        p1.ajoute(poulet);
 
+        if (trace){
+            System.out.println(p1);
+        }
+    }
 
     private void test4_AjoutPlatsAuMenu(boolean trace, Menu m1,
                                         PlatAuMenu p1, PlatAuMenu p2,
                                         PlatSante ps1, PlatSante ps2,
                                         Menu m2,
                                         PlatAuMenu p3, PlatAuMenu p4,
-                                        PlatSante ps3, PlatSante ps4)
+                                        PlatSante ps3, PlatSante ps4,
+                                        Menu m3,
+                                        PlatAuMenu p5,
+                                        PlatSante ps5,
+                                        PlatEnfant pe1, PlatEnfant pe2)
     {
         System.out.println("=== test4_AjoutPlatsAuMenu");
         System.out.println("=== Ajout de plats au menu 1");
@@ -168,9 +209,16 @@ public class TestMenuFact02 {
         m2.ajoute(ps3);
         m2.ajoute(ps4);
 
+        System.out.println(" === Ajout de plats au menu 3");
+        m3.ajoute(p5);
+        m3.ajoute(ps5);
+        m3.ajoute(pe1);
+        m3.ajoute(pe2);
+
         if(trace) {
             System.out.println(m1);
             System.out.println(m2);
+            System.out.println(m3);
         }
     }
 
