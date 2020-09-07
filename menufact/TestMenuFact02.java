@@ -1,6 +1,8 @@
 package menufact;
 
 import ingredients.Ingredient;
+import ingredients.IngredientInventaire;
+import inventaire.Inventaire;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
 import menufact.facture.exceptions.FactureException;
@@ -8,10 +10,11 @@ import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 import menufact.plats.PlatEnfant;
 import menufact.plats.PlatSante;
+import menufact.plats.exceptions.PlatException;
 
 public class TestMenuFact02 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FactureException, PlatException {
         boolean trace = true;
 
         TestMenuFact02 t = new TestMenuFact02();
@@ -40,10 +43,13 @@ public class TestMenuFact02 {
         Menu m2 = new Menu("menufact.Menu 2");
         Menu m3 = new Menu("menufact.Menu 3");
 
+        Inventaire inv1 = new Inventaire();
+
         Ingredient poulet = new Ingredient();
         poulet.setNom("poulet");
         poulet.setDescription("viande blanche");
         //poulet.setTypeIngredient(VIANDE);
+        IngredientInventaire inv_poulet= new IngredientInventaire( "poulet",8) ;
 
         Facture f1 = new Facture("Ma facture");
 
@@ -53,6 +59,7 @@ public class TestMenuFact02 {
         t.test1_AffichePlatsAuMenu(trace, p1,p2,p3,p4,p5);
         t.test2_AffichePlatsSante(trace, ps1,ps2,ps3,ps4,ps5);
         t.test2_1_AffichePlatsEnfant(trace,pe1,pe2,pe3,pe4,pe5);
+        t.test2_2_AjoutInventaire(trace,inv1,poulet);
         t.test3_AjoutMenu(trace, m1,m2,m3);
         t.test3_1_Ajoutingredient(trace,p1,poulet);
         t.test4_AjoutPlatsAuMenu(trace, m1, p1, p2, ps1, ps2, m2, p3, p4, ps3, ps4,m3,p5,ps5,pe1,pe2);
@@ -162,6 +169,10 @@ public class TestMenuFact02 {
         }
     }
 
+    private void test2_2_AjoutInventaire(boolean trace, Inventaire inv1,Ingredient poulet){
+        System.out.println("=== test2_2_AjoutInventaire");
+        inv1.ajouter(poulet);
+    }
 
     private static void test3_AjoutMenu(boolean trace, Menu m1, Menu m2, Menu m3)
     {

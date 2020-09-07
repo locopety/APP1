@@ -12,6 +12,7 @@ public class PlatAuMenu {
     private double prix;
     private EtatPlat etat;
     private ArrayList<Ingredient> ingredient = new ArrayList<Ingredient>();
+    private int ingredient_requis;
 
     public PlatAuMenu(int code, String description, double prix) {
         this.code = code;
@@ -37,7 +38,7 @@ public class PlatAuMenu {
                 ", etat=" + etat +
                 "}\n";
     }
-
+    public ArrayList<Ingredient> getingredient(){return ingredient; }
     public int getCode() {
         return code;
     }
@@ -61,6 +62,17 @@ public class PlatAuMenu {
     public void setPrix(double prix) {
         this.prix = prix;
     }
+
+    public void setIngredient_requis(int ingredient_requis){this.ingredient_requis =ingredient_requis;}
+
+    public int getIngredient_requis(){return ingredient_requis;}
+
+    public boolean checkIngredient_requis(int m) throws PlatException{
+        if (m<ingredient_requis)
+            throw new PlatException("il n'a pas assez d'ingredient");
+
+        else
+            return true;}
 
     public EtatPlat getState(){ return etat; }
 

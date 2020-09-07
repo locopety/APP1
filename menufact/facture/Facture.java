@@ -4,6 +4,7 @@ import menufact.Client;
 import menufact.Chef;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
+import menufact.plats.exceptions.PlatException;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,19 +41,22 @@ public class Facture {
      * Calcul du sous total de la facture
      * @return le sous total
      */
-    public double sousTotal()
-    {
+    public double sousTotal() throws FactureException, PlatException {
         double soustotal=0;
          for (PlatChoisi p : platchoisi)
-             soustotal += p.getQuantite() * p.getPlat().getPrix();
-        return soustotal;
+             if(p.checkPlat()==true){
+                 soustotal += p.getQuantite() * p.getPlat().getPrix();
+                 return soustotal;}
+             else
+                throw new FactureException("impossible a ajouter.");
+                 return soustotal;
     }
 
     /**
      *
      * @return le total de la facture
      */
-    public double total(){
+    public double total() throws FactureException, PlatException {
         return sousTotal()+tps()+tvq();
     }
 
@@ -60,7 +64,7 @@ public class Facture {
      *
      * @return la valeur de la TPS
      */
-    private double tps(){
+    private double tps() throws FactureException, PlatException {
         return TPS*sousTotal();
     }
 
@@ -68,7 +72,7 @@ public class Facture {
      *
      * @return la valeur de la TVQ
      */
-    private  double tvq(){
+    private  double tvq() throws FactureException, PlatException {
         return TVQ*(TPS+1)*sousTotal();
     }
 
@@ -157,8 +161,7 @@ public class Facture {
      *
      * @return une chaîne de caractères avec la facture à imprimer
      */
-    public String genererFacture()
-    {
+    public String genererFacture() throws FactureException, PlatException {
         String lesPlats = new String();
         String factureGenere = new String();
 

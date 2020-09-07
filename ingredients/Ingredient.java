@@ -4,6 +4,7 @@ public class Ingredient {
     private String nom;
     private String description;
     private TypeIngredient typeIngredient;
+    private int disponible;
 
     public String getNom() {
         return nom;
@@ -28,4 +29,7 @@ public class Ingredient {
     public void setTypeIngredient(TypeIngredient typeIngredient) {
         this.typeIngredient = typeIngredient;
     }
+
+    public void setDisponible(int disponible){this.disponible = disponible;}
+    public int getDisponible(){return disponible;}
 }
