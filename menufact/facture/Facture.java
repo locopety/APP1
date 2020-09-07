@@ -1,6 +1,7 @@
 package menufact.facture;
 
 import menufact.Client;
+import menufact.Chef;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
 
@@ -19,6 +20,7 @@ public class Facture {
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
     private int courant;
     private Client client;
+    private Chef chef = Chef.getInstance("Peter");
 
 
     /**********************Constantes ************/
@@ -83,6 +85,7 @@ public class Facture {
     public void fermer()
     {
        etat = FactureEtat.FERMEE;
+       chef.viderNombreDePlats();
     }
 
     /**
@@ -124,8 +127,10 @@ public class Facture {
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {
-        if (etat == FactureEtat.OUVERTE)
+        if (etat == FactureEtat.OUVERTE) {
             platchoisi.add(p);
+            chef.notifier();
+        }
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
     }
