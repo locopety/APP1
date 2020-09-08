@@ -29,7 +29,7 @@ public class Chef {
 
     public void notifier() {
         platsAPreparer++;
-        System.out.println("Actuellement, le chef prepare" + platsAPreparer + "plats.\n");
+        System.out.println("Actuellement, le chef prepare " + platsAPreparer + " plats.\n");
     }
 
     public void viderNombreDePlats() {

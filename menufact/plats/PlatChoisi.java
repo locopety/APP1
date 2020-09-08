@@ -45,8 +45,9 @@ public class PlatChoisi {
         ArrayList<Ingredient> ing = plat.getingredient();
         for(int i=0;i< ing.size();i++){
             check_dispo=ing.get(i).getDisponible();
-            if(plat.checkIngredient_requis(check_dispo)== true)
-                return true;
+            if(plat.checkIngredient_requis(check_dispo)== true){
+                ing.get(i).utilise1dispo();
+                return true;}
             else
                 throw new PlatException("ne peut pas etre ajouter a la facture");
 
