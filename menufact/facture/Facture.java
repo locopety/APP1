@@ -3,6 +3,8 @@ package menufact.facture;
 import menufact.Client;
 import menufact.Chef;
 import menufact.facture.exceptions.FactureException;
+import menufact.plats.EtatEnPreparation;
+import menufact.plats.EtatPlat;
 import menufact.plats.PlatChoisi;
 import menufact.plats.exceptions.PlatException;
 
@@ -134,6 +136,7 @@ public class Facture {
         if (etat == FactureEtat.OUVERTE) {
             platchoisi.add(p);
             chef.notifier(p);
+            //platchoisi.setState(EtatEnPreparation());
         }
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");

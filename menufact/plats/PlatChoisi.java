@@ -53,10 +53,7 @@ public class PlatChoisi {
         }
         return false;
     }
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     public EtatPlat getState(){ return etat; }
 
     public void setState(EtatPlat etat){ this.etat = etat; }
