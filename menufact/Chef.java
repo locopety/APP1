@@ -1,5 +1,7 @@
 package menufact;
 
+import menufact.plats.*;
+
 public class Chef {
     private String nom;
     private int platsAPreparer;
@@ -27,8 +29,9 @@ public class Chef {
         this.nom = nom;
     }
 
-    public void notifier() {
+    public void notifier(PlatChoisi platChoisi) {
         platsAPreparer++;
+        platChoisi.setState(new EtatCommande());
         System.out.println("Actuellement, le chef prepare " + platsAPreparer + " plats.\n");
     }
 

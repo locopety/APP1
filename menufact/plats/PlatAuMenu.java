@@ -10,7 +10,6 @@ public class PlatAuMenu {
     private int code;
     private String description;
     private double prix;
-    private EtatPlat etat;
     private ArrayList<Ingredient> ingredient = new ArrayList<Ingredient>();
     private int ingredient_requis;
 
@@ -18,7 +17,6 @@ public class PlatAuMenu {
         this.code = code;
         this.description = description;
         this.prix = prix;
-        this.etat = new EtatCommande();
     }
     public void ajoute (Ingredient i)
     {
@@ -35,10 +33,10 @@ public class PlatAuMenu {
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
                 ", ingredients="+ingredient+
-                ", etat=" + etat +
                 "}\n";
     }
     public ArrayList<Ingredient> getingredient(){return ingredient; }
+
     public int getCode() {
         return code;
     }
@@ -74,13 +72,4 @@ public class PlatAuMenu {
         else
             return true;}
 
-    public EtatPlat getState(){ return etat; }
-
-    public void setState(EtatPlat etat){ this.etat = etat; }
-
-    public void previousState() throws PlatException { etat.prev(this); }
-
-    public void nextState() throws PlatException { etat.next(this); }
-
-    public void printStatus() throws PlatException { etat.printStatus(); }
 }

@@ -15,10 +15,12 @@ public class PlatChoisi {
     private PlatAuMenu plat;
     private int quantite;
     private int check_dispo;
+    private EtatPlat etat;
 
     public PlatChoisi(PlatAuMenu plat, int quantite) {
         this.plat = plat;
         this.quantite = quantite;
+        this.etat = new EtatCommande();
     }
 
     @Override
@@ -26,6 +28,7 @@ public class PlatChoisi {
         return "menufact.plats.PlatChoisi{" +
                 "quantite=" + quantite +
                 ", plat=" + plat +
+                ", etat=" + etat +
                 '}';
     }
 
@@ -54,4 +57,14 @@ public class PlatChoisi {
         }
         return false;
     }
+
+    public EtatPlat getState(){ return etat; }
+
+    public void setState(EtatPlat etat){ this.etat = etat; }
+
+    public void previousState() throws PlatException { etat.prev(this); }
+
+    public void nextState() throws PlatException { etat.next(this); }
+
+    public void printStatus() throws PlatException { etat.printStatus(); }
 }

@@ -5,16 +5,16 @@ import menufact.plats.exceptions.PlatException;
 public class EtatCommande implements EtatPlat {
 
     @Override
-    public void next(PlatAuMenu platAuMenu) {
+    public void next(PlatChoisi platChoisi) {
         /*if(IngredientsInsufissants)
             platAuMenu.setState(new EtatImposibleServir());
           else
          */
-            platAuMenu.setState(new EtatEnPreparation());
+        platChoisi.setState(new EtatEnPreparation());
     }
 
     @Override
-    public void prev(PlatAuMenu platAuMenu) throws PlatException {
+    public void prev(PlatChoisi platChoisi) throws PlatException {
         throw new PlatException("Le plat est a son etat initial.");
     }
 

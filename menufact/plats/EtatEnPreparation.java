@@ -3,13 +3,13 @@ package menufact.plats;
 public class EtatEnPreparation implements EtatPlat {
 
     @Override
-    public void next(PlatAuMenu platAuMenu) {
-        platAuMenu.setState(new EtatTermine());
+    public void next(PlatChoisi platChoisi) {
+        platChoisi.setState(new EtatTermine());
     }
 
     @Override
-    public void prev(PlatAuMenu platAuMenu) {
-        platAuMenu.setState(new EtatEnPreparation());
+    public void prev(PlatChoisi platChoisi) {
+        platChoisi.setState(new EtatEnPreparation());
     }
 
     @Override
