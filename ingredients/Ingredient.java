@@ -33,6 +33,9 @@ public class Ingredient {
     public void setDisponible(int disponible){this.disponible = disponible;}
     public int getDisponible(){return disponible;}
     public void utilise1dispo(){
-        disponible = disponible-1;
+        disponible--;
+    }
+    public String toString(){
+        return nom;
     }
 }

@@ -1,9 +1,7 @@
 package menufact.plats;
 
 import menufact.plats.exceptions.PlatException;
-import ingredients.Viande;
 import ingredients.Ingredient;
-import ingredients.TypeIngredient;
 import java.util.ArrayList;
 
 public class PlatAuMenu {
@@ -28,11 +26,12 @@ public class PlatAuMenu {
 
     @Override
     public String toString() {
+
         return "menufact.plats.PlatAuMenu{" +
                 "code=" + code +
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
-                ", ingredients="+ingredient+
+                ", ingredients="+ ingredient +
                 "}\n";
     }
     public ArrayList<Ingredient> getingredient(){return ingredient; }

@@ -32,7 +32,7 @@ public class Chef {
     public void notifier(PlatChoisi platChoisi) {
         platsAPreparer++;
         platChoisi.setState(new EtatCommande());
-        System.out.println("Actuellement, le chef prepare " + platsAPreparer + " plats.\n");
+        System.out.println("Actuellement, le chef "+ getNom()+" prepare " + platsAPreparer + " plats.\n");
     }
 
     public void viderNombreDePlats() {

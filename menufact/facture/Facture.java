@@ -136,7 +136,8 @@ public class Facture {
         if (etat == FactureEtat.OUVERTE) {
             platchoisi.add(p);
             chef.notifier(p);
-            //platchoisi.setState(EtatEnPreparation());
+            //platchoisi.etat.nextState();
+            
         }
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
