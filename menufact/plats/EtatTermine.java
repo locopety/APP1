@@ -13,7 +13,7 @@ public class EtatTermine implements EtatPlat {
     }
 
     @Override
-    public void printStatus() {
-        System.out.println("Plat termine.");
+    public String getStatus() {
+        return "Plat termine.";
     }
 }
