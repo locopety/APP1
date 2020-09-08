@@ -70,6 +70,11 @@ public class Ingredient {
     public void utilise1dispo(){
         disponible--;
     }
+
+    /**
+     * override la commande tostring afin d'afficher les nom des ingrédient
+     * 
+     */
     public String toString(){
         return nom;
     }
