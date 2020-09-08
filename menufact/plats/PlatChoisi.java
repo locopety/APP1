@@ -3,13 +3,9 @@ package menufact.plats;
 
 
 import ingredients.Ingredient;
-import ingredients.IngredientInventaire;
 import menufact.plats.exceptions.PlatException;
-import menufact.plats.PlatAuMenu;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.concurrent.Delayed;
 
 public class PlatChoisi {
     private PlatAuMenu plat;
@@ -28,7 +24,7 @@ public class PlatChoisi {
         return "menufact.plats.PlatChoisi{" +
                 "quantite=" + quantite +
                 ", plat=" + plat +
-                ", etat=" + etat +
+                ", etat=" + etat.getStatus() +
                 '}';
     }
 
@@ -69,5 +65,5 @@ public class PlatChoisi {
 
     public void nextState() throws PlatException { etat.next(this); }
 
-    public void printStatus() throws PlatException { etat.printStatus(); }
+    public void printStatus() { etat.getStatus(); }
 }

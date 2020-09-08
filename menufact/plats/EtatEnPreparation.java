@@ -13,7 +13,7 @@ public class EtatEnPreparation implements EtatPlat {
     }
 
     @Override
-    public void printStatus() {
-        System.out.println("Plat en preparation.");
+    public String getStatus() {
+        return "Plat en preparation.";
     }
 }

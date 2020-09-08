@@ -19,7 +19,7 @@ public class EtatCommande implements EtatPlat {
     }
 
     @Override
-    public void printStatus() {
-        System.out.println("Plat commande.");
+    public String getStatus() {
+        return "Plat commande.";
     }
 }

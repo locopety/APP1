@@ -15,7 +15,7 @@ public class EtatImposibleServir implements EtatPlat {
     }
 
     @Override
-    public void printStatus() throws PlatException {
-        throw new PlatException("Plat impossible de servir (manque d’ingrédients)\n.");
+    public String getStatus() {
+        return "Plat impossible de servir (manque d’ingrédients)\n.";
     }
 }
