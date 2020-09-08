@@ -1,5 +1,10 @@
 package menufact.plats;
 
+/**
+ * État d'un plat
+ * @author Rober Baker, Daniel Castro
+ * @version 2.0
+ */
 public class EtatEnPreparation implements EtatPlat {
 
     @Override

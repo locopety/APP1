@@ -11,8 +11,8 @@ import java.util.Date;
 
 /**
  * Une facture du systeme Menufact
- * @author Domingo Palao Munoz
- * @version 1.0
+ * @author Rober Baker, Daniel Castro
+ * @version 2.0
  */
 public class Facture {
     private Date date;
